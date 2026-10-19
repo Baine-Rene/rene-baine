@@ -1,11 +1,17 @@
 const profile = {
   name: "Rene Baine",
   links: [
-    { label: "www.renebaine.com", href: "https://www.renebaine.com" },
-    { label: "hello@renebaine.com", href: "mailto:hello@renebaine.com" },
+    { label: "linkedIn", href: "https://www.linkedin.com/in/ren%C3%A9-baine/?isSelfProfile=true" },
+    { label: "renebaine04@gmail.com", href: "mailto:renebaine04@gmail.com" },
   ],
-  location: "City / Remote",
+  location: "Peterborough / Remote",
 }
+
+const about = [
+  {
+
+  }
+]
 
 const experience = [
   {
@@ -32,7 +38,6 @@ const experience = [
 ]
 
 const education = [
-  { school: "School One", detail: "Certificate in UX/UI Design" },
   { school: "School Two", detail: "BA in Economics" },
 ]
 
@@ -40,7 +45,7 @@ const skills =
   "End-to-end & iterative design, User Research & Testing, Survey Design, User Flows, Wireframing, Prototyping, Usability Testing"
 
 const tools =
-  "Notion, Miro, Figma, Loom, Slack, Sketch, Zeplin, Abstract, InVision, Trello, Jira"
+  "SQL, Supabase, React, Figma, JavaScript, C#, C++, Python, Git, TypeScript, powershell, TailwindCSS, Java, PHP"
 
 function Row({
   label,
