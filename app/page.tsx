@@ -9,7 +9,7 @@ const profile = {
 
 const about = [
   {
-
+    description: "I'm a third year computer science student.",
   }
 ]
 
@@ -82,6 +82,17 @@ export default function Page() {
             <span>{profile.location}</span>
           </div>
         </header>
+
+        {/* About */}
+        <Row label="About">
+          <div className="flex flex-col gap-12">
+            {about.map((job) => (
+              <article className="flex flex-col gap-1">
+                <p className="leading-loose">{job.description}</p>
+              </article>
+            ))}
+          </div>
+        </Row>
 
         {/* Experience */}
         <Row label="Experience">
