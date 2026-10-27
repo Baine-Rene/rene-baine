@@ -1,3 +1,6 @@
+import { link } from "fs"
+import { ThemeToggle } from "../components/theme-toggler"
+
 const profile = {
   name: "Rene Baine",
   links: [
@@ -5,14 +8,21 @@ const profile = {
       label: "linkedIn",
       href: "https://www.linkedin.com/in/ren%C3%A9-baine/?isSelfProfile=true",
     },
-    { label: "renebaine04@gmail.com", href: "mailto:renebaine04@gmail.com" },
+    { label: "Email", href: "mailto:renebaine04@gmail.com" },
   ],
   location: "Peterborough / Remote",
 }
 
 const about = [
   {
-    description: "I'm a third year computer science student.",
+    description:
+      "I'm a third year computer science student. I'm interested in design and ascii art",
+  },
+]
+
+const projects = [
+  {
+    description: "Coming Soon",
   },
 ]
 
@@ -21,19 +31,37 @@ const experience = [
     company: "Hack Trent",
     role: "Vice-President of Design",
     description: "",
-    meta: "Jun 2019 to Present — City, ST",
+    meta: "March 2026 to Present — Peterborough, ON",
+    links: [
+      {
+        label: "HackTrent",
+        href: "https://www.hacktrent.ca/",
+      },
+    ],
   },
   {
     company: "IWIP",
     role: "Co-founder & Web developer",
     description: "",
-    meta: "May 2018 to Jun 2019 — City, ST",
+    meta: "April 2025 to Present — Kitchener, ON",
+    links: [
+      {
+        label: "IwipApp",
+        href: "https://www.iwip.app/",
+      },
+    ],
   },
   {
     company: "TheGarage",
-    role: "Customer Insights Researcher",
+    role: "Front-end developer",
     description: "",
-    meta: "Jul 2015 to Feb 2017 — City, ST",
+    meta: "Febuary 2026 — Toronto, On",
+    links: [
+      {
+        label: "theGarage",
+        href: "https://www.thegarages.ca/",
+      },
+    ],
   },
 ]
 
@@ -45,7 +73,7 @@ const education = [
 ]
 
 const skills =
-  "End-to-end & iterative design, Figma, Graphic-design User Flows, Wireframing, Prototyping"
+  "End-to-end & iterative design, Figma, Graphic-design, User Flows, Wireframing, Prototyping"
 
 const tools =
   "SQL, Supabase, React, Figma, JavaScript, C#, C++, Python, Git, TypeScript, powershell, TailwindCSS, Java, PHP"
@@ -67,7 +95,7 @@ function Row({
 
 export default function Page() {
   return (
-    <main className="min-h-svh bg-background px-6 py-16 font-mono text-md leading-relaxed text-foreground md:py-28">
+    <main className="text-md min-h-svh bg-background px-6 py-16 font-mono leading-relaxed text-foreground md:py-28">
       <div className="mx-auto flex max-w-4xl min-w-0 flex-col gap-14">
         {/* Header */}
         <header className="grid gap-2 md:grid-cols-[10rem_1fr] md:items-baseline md:gap-x-16 lg:grid-cols-[12rem_1fr]">
@@ -84,6 +112,7 @@ export default function Page() {
               </a>
             ))}
             <span>{profile.location}</span>
+            <ThemeToggle />
           </div>
         </header>
 
@@ -109,6 +138,16 @@ export default function Page() {
                 </h3>
                 <p className="leading-loose">{job.description}</p>
                 <p className="text-xs text-muted-foreground">{job.meta}</p>
+                {job.links.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="underline-offset-4 hover:underline focus-visible:underline"
+                    target="_blank"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </article>
             ))}
           </div>
