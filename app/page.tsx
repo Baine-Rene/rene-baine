@@ -4,6 +4,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "../components/ui/hover-card"
+import { MoveUpRight } from "lucide-react"
 
 const profile = {
   name: "@Rene_Baine",
@@ -63,7 +64,8 @@ const experience = [
         label: "IwipApp",
         href: "https://www.iwip.app/",
         title: "IWIP",
-        blurb: "A short description of what IWIP does.",
+        blurb:
+          "IWIP (Inspired Work In Progress) is a platform where professionals create their digital identity, connect with others, and engage in communities - all in one place.",
       },
     ],
   },
@@ -77,7 +79,8 @@ const experience = [
         label: "theGarage",
         href: "https://www.thegarages.ca/",
         title: "TheGarage",
-        blurb: "A short description of what TheGarage does.",
+        blurb:
+          "The AI recruiting platform where job seekers get seen, and recruiters find stronger, faster, clearer fits.",
       },
     ],
   },
@@ -94,11 +97,11 @@ const social = {
   links: [
     {
       label: "Instagram",
-      href: "",
+      href: "https://www.instagram.com/rene_baine_/",
     },
     {
       label: "Twitter",
-      href: "",
+      href: "https://x.com/rene_baine",
     },
   ],
 }
@@ -182,14 +185,19 @@ export default function Page() {
                       <HoverCardTrigger
                         delay={10}
                         closeDelay={100}
+
                         render={
                           <a
                             href={link.href}
-                            className="underline underline-offset-4 focus-visible:underline"
+                            className="inline-flex items-center gap-1 underline underline-offset-4 focus-visible:underline"
                             target="_blank"
                             rel="noreferrer"
                           >
                             {link.label}
+                            <MoveUpRight
+                              className="size-3"
+                              aria-hidden="true"
+                            />
                           </a>
                         }
                       />
