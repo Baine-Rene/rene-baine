@@ -2,7 +2,7 @@ import { link } from "fs"
 import { ThemeToggle } from "../components/theme-toggler"
 
 const profile = {
-  name: "Rene Baine",
+  name: "@Rene_Baine",
   links: [
     {
       label: "linkedIn",
@@ -142,7 +142,7 @@ export default function Page() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="underline-offset-4 hover:underline focus-visible:underline"
+                    className="underline focus-visible:underline"
                     target="_blank"
                   >
                     {link.label}
