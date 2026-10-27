@@ -5,7 +5,6 @@ import {
   HoverCardTrigger,
 } from "../components/ui/hover-card"
 
-
 const profile = {
   name: "@Rene_Baine",
   links: [
@@ -92,16 +91,16 @@ const education = [
 ]
 
 const social = {
-    links: [
-      {
-        label: "Instagram",
-        href: ""
-      },
-      {
-        label: "Twitter",
-        href: ""
-      },
-    ]
+  links: [
+    {
+      label: "Instagram",
+      href: "",
+    },
+    {
+      label: "Twitter",
+      href: "",
+    },
+  ],
 }
 
 const tools =
@@ -194,12 +193,11 @@ export default function Page() {
                           </a>
                         }
                       />
-                      <HoverCardContent 
-                      className="flex w-72 flex-col gap-2"
-                      side="right"
-                      align="start"
-                      sideOffset={12}
-
+                      <HoverCardContent
+                        className="flex w-72 flex-col gap-2"
+                        side="right"
+                        align="start"
+                        sideOffset={12}
                       >
                         <div className="font-semibold">{link.title}</div>
                         <div className="text-muted-foreground">
@@ -213,7 +211,6 @@ export default function Page() {
             ))}
           </div>
         </Row>
-
         {/* Education */}
         <Row label="Education">
           <div className="grid gap-6 sm:grid-cols-1">
@@ -226,14 +223,26 @@ export default function Page() {
           </div>
         </Row>
 
-        {/* Skills */}
-        <Row label="Skills">
-          <p className="leading-loose">{skills}</p>
-        </Row>
-
         {/* Tools */}
         <Row label="Tools">
           <p className="leading-loose">{tools}</p>
+        </Row>
+
+        {/* Skills */}
+        <Row label="Socials">
+          <div className="grid gap-6 sm:grid-cols-1">
+            {social.links.map((link, i) => (
+              <a
+                key={link.href || i}
+                href={link.href}
+                className="underline-offset-4 hover:underline focus-visible:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </Row>
       </div>
     </main>
