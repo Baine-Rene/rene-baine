@@ -1,7 +1,10 @@
 const profile = {
   name: "Rene Baine",
   links: [
-    { label: "linkedIn", href: "https://www.linkedin.com/in/ren%C3%A9-baine/?isSelfProfile=true" },
+    {
+      label: "linkedIn",
+      href: "https://www.linkedin.com/in/ren%C3%A9-baine/?isSelfProfile=true",
+    },
     { label: "renebaine04@gmail.com", href: "mailto:renebaine04@gmail.com" },
   ],
   location: "Peterborough / Remote",
@@ -10,39 +13,39 @@ const profile = {
 const about = [
   {
     description: "I'm a third year computer science student.",
-  }
+  },
 ]
 
 const experience = [
   {
-    company: "Company One",
-    role: "Product Designer",
-    description:
-      "Designing tools for millions of users. Currently focused on the analytics portfolio — helping people understand their performance and ROI.",
+    company: "Hack Trent",
+    role: "Vice-President of Design",
+    description: "",
     meta: "Jun 2019 to Present — City, ST",
   },
   {
-    company: "Company Two",
-    role: "Product Designer II",
-    description:
-      "Took a B2B app from idea to launch as lead designer. Led end-to-end design, whiteboarding sessions, critiques, and design reviews. Mentored other designers.",
+    company: "IWIP",
+    role: "Co-founder & Web developer",
+    description: "",
     meta: "May 2018 to Jun 2019 — City, ST",
   },
   {
-    company: "Company Three",
+    company: "TheGarage",
     role: "Customer Insights Researcher",
-    description:
-      "Designed and carried out research studies focused on service design, usability, and concept testing. Managed large consumer panels.",
+    description: "",
     meta: "Jul 2015 to Feb 2017 — City, ST",
   },
 ]
 
 const education = [
-  { school: "School Two", detail: "BA in Economics" },
+  {
+    school: "Trent University",
+    detail: "Honours Science Program, Computer Science",
+  },
 ]
 
 const skills =
-  "End-to-end & iterative design, User Research & Testing, Survey Design, User Flows, Wireframing, Prototyping, Usability Testing"
+  "End-to-end & iterative design, Figma, Graphic-design User Flows, Wireframing, Prototyping"
 
 const tools =
   "SQL, Supabase, React, Figma, JavaScript, C#, C++, Python, Git, TypeScript, powershell, TailwindCSS, Java, PHP"
@@ -64,7 +67,7 @@ function Row({
 
 export default function Page() {
   return (
-    <main className="min-h-svh bg-background px-6 py-16 font-mono text-sm leading-relaxed text-foreground md:py-28">
+    <main className="min-h-svh bg-background px-6 py-16 font-mono text-md leading-relaxed text-foreground md:py-28">
       <div className="mx-auto flex max-w-4xl min-w-0 flex-col gap-14">
         {/* Header */}
         <header className="grid gap-2 md:grid-cols-[10rem_1fr] md:items-baseline md:gap-x-16 lg:grid-cols-[12rem_1fr]">
@@ -75,6 +78,7 @@ export default function Page() {
                 key={link.href}
                 href={link.href}
                 className="underline-offset-4 hover:underline focus-visible:underline"
+                target="_blank"
               >
                 {link.label}
               </a>
