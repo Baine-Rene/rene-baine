@@ -23,6 +23,7 @@ export default function RootLayout({
       className={cn("antialiased", fontSans.variable, "font-mono", jetbrainsMono.variable)}
     >
       <body>
+        <title>Rene Baine</title>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
