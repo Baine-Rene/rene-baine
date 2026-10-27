@@ -1,5 +1,9 @@
-import { link } from "fs"
 import { ThemeToggle } from "../components/theme-toggler"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../components/ui/hover-card"
 
 const profile = {
   name: "@Rene_Baine",
@@ -36,6 +40,9 @@ const experience = [
       {
         label: "HackTrent",
         href: "https://www.hacktrent.ca/",
+        title: "Hack Trent",
+        blurb: "Trent University's hackathon and tech community.", // edit me
+        detail: "Peterborough, ON",
       },
     ],
   },
@@ -48,6 +55,9 @@ const experience = [
       {
         label: "IwipApp",
         href: "https://www.iwip.app/",
+        title: "IWIP",
+        blurb: "A short description of what IWIP does.", // edit me
+        detail: "Kitchener, ON",
       },
     ],
   },
@@ -60,6 +70,9 @@ const experience = [
       {
         label: "theGarage",
         href: "https://www.thegarages.ca/",
+        title: "TheGarage",
+        blurb: "A short description of what TheGarage does.", // edit me
+        detail: "Toronto, ON",
       },
     ],
   },
@@ -127,6 +140,15 @@ export default function Page() {
           </div>
         </Row>
 
+        {/* Projects */}
+        <Row label="projects">
+          <div>
+            {projects.map((project) => (
+              <p key={project.description}>{project.description}</p>
+            ))}
+          </div>
+        </Row>
+
         {/* Experience */}
         <Row label="Experience">
           <div className="flex flex-col gap-12">
@@ -138,16 +160,33 @@ export default function Page() {
                 </h3>
                 <p className="leading-loose">{job.description}</p>
                 <p className="text-xs text-muted-foreground">{job.meta}</p>
-                {job.links.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="underline focus-visible:underline"
-                    target="_blank"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                <div className="flex flex-wrap gap-x-6 gap-y-1">
+                  {job.links.map((link) => (
+                    <HoverCard key={link.href}>
+                      <HoverCardTrigger
+                        delay={10}
+                        closeDelay={100}
+                        render={
+                          <a
+                            href={link.href}
+                            className="underline underline-offset-4 focus-visible:underline"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {link.label}
+                          </a>
+                        }
+                      />
+                      <HoverCardContent className="flex w-64 flex-col gap-0.5">
+                        <div className="font-semibold">{link.title}</div>
+                        <div>{link.blurb}</div>
+                        <div className="mt-1 text-xs text-muted-foreground">
+                          {link.detail}
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                  ))}
+                </div>
               </article>
             ))}
           </div>
