@@ -5,6 +5,7 @@ import {
   HoverCardTrigger,
 } from "../components/ui/hover-card"
 
+
 const profile = {
   name: "@Rene_Baine",
   links: [
@@ -12,7 +13,14 @@ const profile = {
       label: "linkedIn",
       href: "https://www.linkedin.com/in/ren%C3%A9-baine/?isSelfProfile=true",
     },
-    { label: "Email", href: "mailto:renebaine04@gmail.com" },
+    {
+      label: "Email",
+      href: "mailto:renebaine04@gmail.com",
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/Baine-Rene",
+    },
   ],
   location: "Peterborough / Remote",
 }
@@ -20,7 +28,7 @@ const profile = {
 const about = [
   {
     description:
-      "I'm a third year computer science student. I'm interested in design and ascii art",
+      "I'm a third year computer science student @Trent University. I'm interested in graphic design and creating visual elements. ",
   },
 ]
 
@@ -41,8 +49,8 @@ const experience = [
         label: "HackTrent",
         href: "https://www.hacktrent.ca/",
         title: "Hack Trent",
-        blurb: "Trent University's hackathon and tech community.", // edit me
-        detail: "Peterborough, ON",
+        blurb:
+          "HackTrent is the premier hackathon event hosted by Trent University.",
       },
     ],
   },
@@ -56,8 +64,7 @@ const experience = [
         label: "IwipApp",
         href: "https://www.iwip.app/",
         title: "IWIP",
-        blurb: "A short description of what IWIP does.", // edit me
-        detail: "Kitchener, ON",
+        blurb: "A short description of what IWIP does.",
       },
     ],
   },
@@ -71,8 +78,7 @@ const experience = [
         label: "theGarage",
         href: "https://www.thegarages.ca/",
         title: "TheGarage",
-        blurb: "A short description of what TheGarage does.", // edit me
-        detail: "Toronto, ON",
+        blurb: "A short description of what TheGarage does.",
       },
     ],
   },
@@ -85,8 +91,18 @@ const education = [
   },
 ]
 
-const skills =
-  "End-to-end & iterative design, Figma, Graphic-design, User Flows, Wireframing, Prototyping"
+const social = {
+    links: [
+      {
+        label: "Instagram",
+        href: ""
+      },
+      {
+        label: "Twitter",
+        href: ""
+      },
+    ]
+}
 
 const tools =
   "SQL, Supabase, React, Figma, JavaScript, C#, C++, Python, Git, TypeScript, powershell, TailwindCSS, Java, PHP"
@@ -120,6 +136,7 @@ export default function Page() {
                 href={link.href}
                 className="underline-offset-4 hover:underline focus-visible:underline"
                 target="_blank"
+                rel="noreferrer"
               >
                 {link.label}
               </a>
@@ -132,8 +149,8 @@ export default function Page() {
         {/* About */}
         <Row label="About">
           <div className="flex flex-col gap-12">
-            {about.map((job) => (
-              <article className="flex flex-col gap-1">
+            {about.map((job, i) => (
+              <article key={i} className="flex flex-col gap-1">
                 <p className="leading-loose">{job.description}</p>
               </article>
             ))}
@@ -141,10 +158,10 @@ export default function Page() {
         </Row>
 
         {/* Projects */}
-        <Row label="projects">
+        <Row label="Projects">
           <div>
             {projects.map((project) => (
-              <p key={project.description}>{project.description}</p>
+              <p key={project.description}>{project.description}!</p>
             ))}
           </div>
         </Row>
@@ -177,11 +194,16 @@ export default function Page() {
                           </a>
                         }
                       />
-                      <HoverCardContent className="flex w-64 flex-col gap-0.5">
+                      <HoverCardContent 
+                      className="flex w-72 flex-col gap-2"
+                      side="right"
+                      align="start"
+                      sideOffset={12}
+
+                      >
                         <div className="font-semibold">{link.title}</div>
-                        <div>{link.blurb}</div>
-                        <div className="mt-1 text-xs text-muted-foreground">
-                          {link.detail}
+                        <div className="text-muted-foreground">
+                          {link.blurb}
                         </div>
                       </HoverCardContent>
                     </HoverCard>
@@ -194,7 +216,7 @@ export default function Page() {
 
         {/* Education */}
         <Row label="Education">
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-1">
             {education.map((item) => (
               <div key={item.school}>
                 <h3 className="font-bold">{item.school}</h3>
